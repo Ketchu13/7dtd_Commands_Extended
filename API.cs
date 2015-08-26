@@ -8,7 +8,7 @@ namespace AllocsCommands
 		}
 
 		public override string ModVersion () {
-			return "1.0 for A11.1";
+			return "1.0 KFP for A12.5";
 		}
 	}
 }
