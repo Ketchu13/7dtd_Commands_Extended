@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="KFP command extensions" />
+		<Description value="Additional commands for server operation" />
+		<Author value="ketchu13" />
+		<Version value="5.KFP" />
+		<Website value="http://www.ketchu-free-party.fr" />
+	</ModInfo>
+</xml>
