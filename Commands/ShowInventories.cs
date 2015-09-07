@@ -44,14 +44,26 @@ namespace AllocsFixes.CustomCommands
 
 				SdtdConsole.Instance.Output ("Belt of player " + p.Name + ":");
 				for (int i = 0; i < inv.belt.Count; i++) {
-					if (inv.belt [i] != null)
-						SdtdConsole.Instance.Output (string.Format ("    Slot {0}: {1:000} * {2}", i, inv.belt [i].count, inv.belt [i].itemName));
-				}
+					if (inv.belt [i] != null){
+						if (inv.belt [i].quality < 0) {
+							SdtdConsole.Instance.Output (string.Format ("    Slot {0}: {1:000} * {2}", i, inv.belt [i].count, inv.belt [i].itemName));
+						}else
+						{
+							SdtdConsole.Instance.Output (string.Format ("    Slot {0}: {1:000} * {2}", i, inv.belt [i].count, inv.belt [i].itemName, inv.belt[i].quality));
+						}
+					}
+							}
 				SdtdConsole.Instance.Output (string.Empty);
 				SdtdConsole.Instance.Output ("Bagpack of player " + p.Name + ":");
 				for (int i = 0; i < inv.bag.Count; i++) {
-					if (inv.bag [i] != null)
-						SdtdConsole.Instance.Output (string.Format ("    Slot {0}: {1:000} * {2}", i, inv.bag [i].count, inv.bag [i].itemName));
+					if (inv.bag [i] != null){
+						if (inv.bag [i].quality < 0) {
+							SdtdConsole.Instance.Output (string.Format ("    Slot {0}: {1:000} * {2}", i, inv.bag [i].count, inv.bag [i].itemName));
+						}else
+						{
+						SdtdConsole.Instance.Output (string.Format ("    Slot {0}: {1:000} * {2} -- {3}", i, inv.bag [i].count, inv.bag [i].itemName, inv.bag[i].quality));
+						}
+					}
 				}
 				SdtdConsole.Instance.Output (string.Empty);
 			} catch (Exception e) {

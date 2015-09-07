@@ -32,18 +32,13 @@ namespace AllocsFixes.CustomCommands
 					Player p = PersistentContainer.Instance.Players [sid,false];
 
 					if (nameFilter.Length == 0 || p.Name.ToLower ().Contains (nameFilter)) {
-						text = String.Format("{0} a joue sur le serveur {1}, {2} minutes (=> {3} heure(s)) depuis le 23-11-2014.",
+						text = String.Format("{0} a joue sur le serveur {1}, {2} minutes (=> {3} heure(s)) depuis le 06-08-2015.",
 							p.Name,
 							"KFP",
 							(p.TotalPlayTime / 60),
 							(p.TotalPlayTime / 3600)					
 						);
-//						CommonMappingFunctions.GetGameManager().GetRPCNetworkView().RPC("RPC_ChatMessage", UnityEngine.RPCMode.AllBuffered, new object[] {
-//							text,
-//							-1,
-//							string.Empty,
-//							false
-//						});
+						GameManager.Instance.GameMessageServer(null, text, string.Empty);
 						return;
 					}
 				}

@@ -68,6 +68,9 @@
     <Compile Include="Commands\ShowInventories.cs" />
     <Compile Include="ChatTeam.cs" />
     <Compile Include="Commands\SayToTeam.cs" />
+    <Compile Include="Commands\PlaceTurret.cs" />
+    <Compile Include="Commands\ListBlocks.cs" />
+    <Compile Include="Commands\PlayShotSound.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -6,8 +6,6 @@ namespace AllocsFixes.CustomCommands
 {
 	public class EntitiesTools : ConsoleCmdAbstract
 	{
-		private readonly World world = GameManager.Instance.World;
-
 		public override string GetDescription ()
 		{
 			return "Tools for manage Entities";
@@ -34,38 +32,48 @@ namespace AllocsFixes.CustomCommands
 						Entity item = w.Entities.list[i];
 						EntityAlive _entityAlive = null;
 						Boolean _boolean = false;
+						//SdtdConsole.Instance.Output ("itemClass: " + item.entityClass.ToString () );
 
 						if (item is EntityAlive) {
 							_entityAlive = (EntityAlive)item;
-							try
+							/*try
 							{
-							AIDirectorPlayerInventory inventory = AIDirectorPlayerInventory.FromEntity(_entityAlive);
+								AIDirectorPlayerInventory inventory = AIDirectorPlayerInventory.FromEntity(_entityAlive);
 
-							AIDirectorPlayerInventory.ItemId itmid = new AIDirectorPlayerInventory.ItemId();
-							itmid.id = 1356;
-							itmid.count = 500;
-							inventory.bag.Add(itmid);
-							NetPackagePlayerInventory pkh = new NetPackagePlayerInventory(_entityAlive,inventory);
-							ClientInfo ci1 = ConsoleHelper.ParseParamIdOrName (_entityAlive.EntityName);
+								AIDirectorPlayerInventory.ItemId itmid = new AIDirectorPlayerInventory.ItemId();
+								itmid.id = 1356;
+								itmid.count = 500;
+								inventory.bag.Add(itmid);
+								NetPackagePlayerInventory pkh = new NetPackagePlayerInventory(_entityAlive,inventory);
+								ClientInfo ci1 = ConsoleHelper.ParseParamIdOrName (_entityAlive.EntityName);
 								ci1.SendPackage (pkh);
 							}
 							catch (Exception e)
 							{
 								Log.Out ("Error in EntitiesTools.Run " + e);
 								SdtdConsole.Instance.Output ("Error in EntitiesTools.Run " + e);
-							}
+							}		*/				}
 
-						}
 						if ( _params[1].ToLower().Equals("all")) {
 							_boolean = true;
 						}
-						SdtdConsole.Instance.Output (item.entityClass.ToString () );
+
 						if (item.entityClass.ToString ().ToLower ().Equals (_params [1]) ) {
 							_boolean = true;
 
 						}
+						if (item.entityId.ToString ().ToLower ().Equals (_params [1]) ) {
+							_boolean = true;
+
+						}
+						if (item.entityType.ToString ().ToLower ().Equals (_params [1]) ) {
+							_boolean = true;
+
+						}
 						if (_entityAlive != null) {
-							SdtdConsole.Instance.Output (_entityAlive.EntityName );
+							SdtdConsole.Instance.Output (_entityAlive.EntityName.ToString() );
+							SdtdConsole.Instance.Output (_entityAlive.entityType.ToString());
+							SdtdConsole.Instance.Output (_entityAlive.entityId.ToString());
 							if (_entityAlive.EntityName.ToLower ().Equals (_params [1].ToLower ())) {
 								_boolean = true;
 							}
